@@ -1,0 +1,45 @@
+.introduction {
+    margin: 180px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10%;
+    background-color: #f7f7f7;
+    .photo-container {
+        .base-layer {
+            position: absolute;
+            width: 30vw;
+            height: 30vh;
+            background-color: #d8d8d8;
+        }
+        .photo {
+            background-image: url("../../public/47536553071_0063ceae7e_c.jpeg");
+            background-position: center;
+            background-size: cover;
+            width: 30vw;
+            height: 30vh;
+            margin-right: 100px;
+            z-index: 2;
+            position: relative;
+            left: 20px;
+            top: 20px;
+        }    
+    }
+    
+    .content {
+        .title {
+            margin-bottom: 40px;
+            color: #303133;
+            span {
+                font-size: 24px;
+                font-weight: 600;
+            }
+        }
+
+        p {
+            color: #262c33;
+            font-weight: 400;
+        }
+    }
+}

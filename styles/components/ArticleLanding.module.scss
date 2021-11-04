@@ -1,0 +1,38 @@
+.article-landing {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../public/50188569871_7430e1dc46_o.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+
+    .container {
+        position: absolute;
+        left: 10%;
+        bottom: 10%;
+        color: white;
+        span {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: 300;
+        }
+        .cta {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            font-size: 17px;
+            width: 150px;
+            height: 42px;
+        }       
+    }
+
+    
+}
