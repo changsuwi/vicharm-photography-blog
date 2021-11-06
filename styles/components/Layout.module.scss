@@ -24,7 +24,47 @@
     .nav-list {
       a {
         margin-right: 40px;
-        font-size: 17px;
+        font-size: 16px;
+      }
+    }
+
+    .social-media-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .ig {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 768px) {
+      height: 46px;
+      .icon {
+        width: 46px;
+        height: 46px;
+      }
+
+      .nav-list {
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+
+    @media (min-width: 1440px) {
+      height: 54px;
+      .icon {
+        width: 54px;
+        height: 54px;
+      }
+
+      .nav-list {
+        a {
+          font-size: 20px;
+          margin-right: 80px;
+        }
       }
     }
   }

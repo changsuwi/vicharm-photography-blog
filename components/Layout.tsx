@@ -48,7 +48,7 @@ export default class Articles extends React.Component<Props, any> {
                         </Link>
 
                         <Link href="/article">
-                            <a>旅行紀錄</a>
+                            <a className="mr-0">旅行紀錄</a>
                         </Link>
 
                         <Link href="/article" >
@@ -61,7 +61,7 @@ export default class Articles extends React.Component<Props, any> {
                     </div>
                     <div className={styles["social-media-list"]}>
                         <a href="https://www.instagram.com/vicharm_photography/" className={styles.ig}>
-                        <FontAwesomeIcon icon={faInstagram} width="17px"/>
+                            <FontAwesomeIcon icon={faInstagram} width="18px" height="18px"/>
                         </a>
                     </div>
                 </header>
@@ -70,7 +70,7 @@ export default class Articles extends React.Component<Props, any> {
                     <p>© 2021 Vicharm Photography. All rights reserved</p>
                     <div className={styles["social-media-list"]}>
                         <a href="https://www.instagram.com/vicharm_photography/" className={styles.ig}>
-                        <FontAwesomeIcon icon={faInstagram} width="17px"/>
+                        <FontAwesomeIcon icon={faInstagram} width="18px"/>
                         </a>
                     </div>
                 </footer>

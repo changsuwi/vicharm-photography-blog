@@ -12,26 +12,53 @@
 
     .container {
         position: absolute;
-        left: 10%;
-        bottom: 10%;
+        left: 6%;
+        bottom: 20px;
         color: white;
+
+        background-color: #37646C;
+        opacity: 0.8;
+        padding: 15px 50px;
+        border-radius: 15px;
+
         span {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 600;
         }
 
         p {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 300;
         }
         .cta {
             background-color: transparent;
             color: white;
             border: 1px solid white;
-            font-size: 17px;
-            width: 150px;
-            height: 42px;
+            font-size: 14px;
+            width: 120px;
+            height: 36px;
         }       
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            bottom: 80px;
+            span {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 24px;
+            }
+            .cta {
+                background-color: transparent;
+                color: white;
+                border: 1px solid white;
+                font-size: 17px;
+                width: 150px;
+                height: 42px;
+            }       
+        }
     }
 
     
