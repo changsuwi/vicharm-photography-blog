@@ -79,10 +79,17 @@
                 font-size: 18px;
             }
 
-            p, h2, h3, ul, ol{
+            p, h2, h3{
                 padding: 0px 10%;
                 @media (min-width: 768px) {
                     padding: 0px 20%;
+                }
+            }
+
+            ul, ol {
+                padding: 0px 15%;
+                @media (min-width: 768px) {
+                    padding: 0px 25%;
                 }
             }
 
@@ -92,9 +99,9 @@
             img {
                 position: relative;
                 display: block;
-                margin: 40px 0;
-                width: 100%;
+                margin: 40px auto;
                 max-width: 100vw;
+                max-height: 100vh;
                 object-fit: cover;
                 @media (min-width: 1440px) {
                     padding: 0px 20%;
