@@ -34,7 +34,7 @@ export default class Home extends React.Component<any, any> {
     Amplitude.init();
     Amplitude.analyticsPageView("/");
   }
-  
+
   render(): JSX.Element {
     return(
       <div className={styles.container}>

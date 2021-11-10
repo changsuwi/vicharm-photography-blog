@@ -31,7 +31,8 @@ export default class TripList extends React.Component<Props, any> {
         return (
             <div className={styles["trip-list"]}>
                 <Head>
-                    <title>旅行紀錄</title>
+                    <title>旅程指南</title>
+                    <meta name="description" content="秘境美景攻略與推薦旅程都在這" />
                 </Head>
                 <div className={styles["top-landing"]}>
                     {/* 放標題     */}

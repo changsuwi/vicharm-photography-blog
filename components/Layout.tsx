@@ -6,6 +6,8 @@ import styles from "../styles/components/Layout.module.scss";
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import Amplitude from "../lib/Amplitude";
+
 interface Props {
     children: any
 }
@@ -60,7 +62,14 @@ export default class Articles extends React.Component<Props, any> {
                         </Link>
                     </div>
                     <div className={styles["social-media-list"]}>
-                        <a href="https://www.instagram.com/vicharm_photography/" className={styles.ig}>
+                        <a 
+                            href="https://www.instagram.com/vicharm_photography/"
+                            className={styles.ig}
+                            onClick={() => Amplitude.analyticsEvent({
+                                category: "Navigation IG",
+                                action: "Click Header IG"
+                            })}
+                        >
                             <FontAwesomeIcon icon={faInstagram} width="18px" height="18px"/>
                         </a>
                     </div>
@@ -69,8 +78,15 @@ export default class Articles extends React.Component<Props, any> {
                 <footer className={styles.footer}>
                     <p>© 2021 Vicharm Photography. All rights reserved</p>
                     <div className={styles["social-media-list"]}>
-                        <a href="https://www.instagram.com/vicharm_photography/" className={styles.ig}>
-                        <FontAwesomeIcon icon={faInstagram} width="18px"/>
+                        <a 
+                            href="https://www.instagram.com/vicharm_photography/"
+                            className={styles.ig}
+                            onClick={() => Amplitude.analyticsEvent({
+                                category: "Navigation IG",
+                                action: "Click Footer IG"
+                            })}
+                        >
+                            <FontAwesomeIcon icon={faInstagram} width="18px"/>
                         </a>
                     </div>
                 </footer>

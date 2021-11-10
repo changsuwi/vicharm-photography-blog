@@ -41,6 +41,7 @@ export default class Post extends React.Component<Props, any> {
             <div className={styles.article}>
               <Head>
                 <title>{this.props.postData.title}</title>
+                <meta name="description" content={this.props.postData.hint}/>
               </Head>
               <article>
                 <img src={this.props.postData.img} alt="" className={styles["top-img"]}/>

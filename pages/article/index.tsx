@@ -32,6 +32,7 @@ export default class ArticleList extends React.Component<Props, any> {
             <div className={styles["article-list"]}>
                 <Head>
                     <title>旅行紀錄</title>
+                    <meta name="description" content="用相機與文字記錄每次旅行的美好"/>
                 </Head>
                 <div className={styles["top-landing"]}>
                     {/* 放標題     */}
