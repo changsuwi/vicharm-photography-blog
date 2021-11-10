@@ -13,6 +13,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "@types/amplitude-js": "^8.0.1",
+    "amplitude-js": "^8.9.1",
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "11.1.2",

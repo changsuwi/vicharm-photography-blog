@@ -1,9 +1,11 @@
 import * as React from "react";
 import { getAllPostIds, getPostData } from '../../lib/post'
 import Head from 'next/head'
+import { GetStaticProps } from "next";
 
 import styles from "../../styles/Post.module.scss";
-import { GetStaticProps } from "next";
+
+import Amplitude from "../../lib/Amplitude";
 
 interface Props {
     postData: any
@@ -27,6 +29,12 @@ export async function getStaticPaths() {
 }
 
 export default class Post extends React.Component<Props, any> {
+    componentDidMount(): void {
+        Amplitude.init();
+        Amplitude.analyticsPageView("/trip", {
+          id: this.props.postData.id
+        });
+    }
     render(): JSX.Element {
         return (
             <div className={styles.article}>

@@ -11,6 +11,8 @@ import Articles from '../components/Articles'
 import TripLanding from '../components/TripLanding'
 import Trips from "../components/Trips";
 
+import Amplitude from "../lib/Amplitude";
+
 interface Props {
   postData: any
 }
@@ -28,6 +30,11 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 
 export default class Home extends React.Component<any, any> {
 
+  componentDidMount(): void {
+    Amplitude.init();
+    Amplitude.analyticsPageView("/");
+  }
+  
   render(): JSX.Element {
     return(
       <div className={styles.container}>

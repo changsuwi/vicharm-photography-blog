@@ -6,6 +6,8 @@ import { GetStaticProps } from "next";
 import Articles from "../../components/Articles";
 import styles from "../../styles/ArticleList.module.scss";
 
+import Amplitude from "../../lib/Amplitude";
+
 interface Props {
     postData: any
 }
@@ -20,6 +22,11 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 }
 
 export default class ArticleList extends React.Component<Props, any> {
+    componentDidMount(): void {
+        Amplitude.init();
+        Amplitude.analyticsPageView("/article-list");
+    }
+
     render(): JSX.Element {
         return (
             <div className={styles["article-list"]}>
