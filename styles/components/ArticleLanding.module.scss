@@ -1,6 +1,6 @@
 .article-landing {
     width: 100vw;
-    height: 100vh;
+    height: 568px;
     background-image: url("../../public/50188569871_7430e1dc46_o.webp");
     background-size: cover;
     background-position: center;
@@ -38,6 +38,10 @@
         }       
     }
 
+    @media (min-width: 375px) {
+        height: 667px;
+    }
+
     @media (min-width: 768px) {
         .container {
             padding: 20px 80px;
@@ -59,6 +63,10 @@
             } 
         }
         
+    }
+
+    @media (min-width: 1024px) {
+        height: 900px;
     }
 
     @media (min-width: 1440px) {

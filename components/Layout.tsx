@@ -76,7 +76,7 @@ export default class Articles extends React.Component<Props, any> {
                 </header>
                 {this.props.children}
                 <footer className={styles.footer}>
-                    <p>© 2021 Vicharm Photography. All rights reserved</p>
+                    <p>© 2021 Vicharm. All rights reserved</p>
                     <div className={styles["social-media-list"]}>
                         <a 
                             href="https://www.instagram.com/vicharm_photography/"
