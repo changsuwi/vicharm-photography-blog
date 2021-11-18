@@ -123,6 +123,17 @@
                     max-width: 768px;
                 }
             }
+
+            iframe {
+                display: block;
+                margin: 18px auto;
+
+                @media (min-width: 768px) {
+                    width: 600px;
+                    height: 450px;
+                }
+            }
         }
+        
     }
 }
