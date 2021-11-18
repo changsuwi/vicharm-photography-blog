@@ -1,5 +1,6 @@
+@import "styles/variables";
 .article {
-    background-color: #f7f7f7;
+    background-color: $desert-storm;
     display: flex;
     
     .top-img {
@@ -24,7 +25,7 @@
 
         h1 {
             text-align: center;
-            color: #303133;
+            color: $gun-metal;
             font-weight: 400;
             font-size: 32px;
             margin-left: 4%;
@@ -81,7 +82,7 @@
         }
 
         .content {
-            color: #262c33;
+            color: baltic-sea;
             margin: 28px 0;
 
             h2 {
@@ -110,9 +111,6 @@
                     padding: 0px 25%;
                 }
             }
-
-            
-            
 
             img {
                 position: relative;

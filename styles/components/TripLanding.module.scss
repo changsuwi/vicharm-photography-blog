@@ -1,3 +1,4 @@
+@import "styles/variables";
 .trip-landing {
     width: 100vw;
     height: 568px;
@@ -15,7 +16,7 @@
         bottom: 20px;
         color: white;
 
-        background-color: #37646C;
+        background-color: $casal;
         opacity: 0.8;
         padding: 15px 50px;
         border-radius: 15px;

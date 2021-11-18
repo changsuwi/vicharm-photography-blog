@@ -1,5 +1,7 @@
+@import "styles/variables";
+
 .article-list {
-    background-color: #f7f7f7;
+    background-color: $desert-storm;
     .top-landing {
         background-image:url("https://ik.imagekit.io/vicharm/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301");
         width: 100%;
