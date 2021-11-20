@@ -133,6 +133,12 @@
                     height: 450px;
                 }
             }
+
+            a {
+                color: $blue;
+                font-style: italic;
+                text-decoration: underline;
+            }
         }
         
     }
