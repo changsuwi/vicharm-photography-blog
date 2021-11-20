@@ -3,7 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 
 import remarkUnwrapImages from 'remark-unwrap-images'
-import {unified} from 'unified'
+import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
@@ -11,7 +11,7 @@ import rehypeStringify from 'rehype-stringify'
 
 const base = process.cwd()
 
-export function getSortedPostsData(dirName) {
+export function getSortedPostsData(dirName: string) {
   // Get file names under /posts
   const fileNames = fs.readdirSync(path.join(base, dirName))
   const allPostsData = fileNames.map(fileName => {
@@ -29,6 +29,7 @@ export function getSortedPostsData(dirName) {
 
     return {
       id,
+      date: matterResult.data.date,
       ...matterResult.data
     }
   })
@@ -44,7 +45,7 @@ export function getSortedPostsData(dirName) {
   })
 }
 
-export function getAllPostIds(dirName) {
+export function getAllPostIds(dirName: string) {
     const fileNames = fs.readdirSync(path.join(base, dirName))
   
     // Returns an array that looks like this:
@@ -69,7 +70,7 @@ export function getAllPostIds(dirName) {
     })
   }
 
-  export async function getPostData(id, dirName) {
+  export async function getPostData(id: string, dirName: string) {
     const fullPath = path.join(base, dirName, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
   
