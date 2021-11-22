@@ -29,12 +29,42 @@ export async function getStaticPaths() {
 }
 
 export default class Post extends React.Component<Props, any> {
+    private maxScroll = 0;
+    constructor(props: any) {
+      super(props);
+      this.scrollHandler = this.scrollHandler.bind(this);
+    } 
+
     componentDidMount(): void {
         Amplitude.init();
         Amplitude.analyticsPageView("/trip", {
           id: this.props.postData.id
         });
+
+        document.addEventListener("scroll", this.scrollHandler)
     }
+
+    scrollHandler(e: Event): void {
+      const currentScrollY = window.scrollY;
+      if(currentScrollY > this.maxScroll) this.maxScroll = currentScrollY;
+    }
+
+    componentWillUnmount(): void {
+      document.removeEventListener("scroll", this.scrollHandler);
+
+      const body = document.body;
+      const html = document.documentElement;
+      const pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+        html.clientHeight, html.scrollHeight, html.offsetHeight );
+      
+      Amplitude.analyticsEvent({
+        category: "Effectiveness trip",
+        action: "leave trip",
+        id: this.props.postData.id,
+        maxScrollPercentage: Math.round(((this.maxScroll + html.clientHeight) / pageHeight) * 100)
+      })
+    }
+
     render(): JSX.Element {
         return (
             <div className={styles.article}>

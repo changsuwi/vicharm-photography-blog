@@ -31,7 +31,7 @@ export default class Amplitude {
         [key: string]: any;
     }) {
         if (process.env.NEXT_PUBLIC_ENV === "development") {
-            // console.log(`event: [${event.category}][${event.action}]`, event);
+            console.log(`event: [${event.category}][${event.action}]`, event);
             return;
         }
 
