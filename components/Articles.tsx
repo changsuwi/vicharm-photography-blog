@@ -1,6 +1,8 @@
 import * as React from "react";
 import Link from 'next/link'
 import styles from "../styles/components/Articles.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight} from "@fortawesome/free-solid-svg-icons";
 
 interface Props{
     articles: any
@@ -14,7 +16,12 @@ export default class Articles extends React.Component<Props, any> {
                 {articles.map((article: any) => (
                     <Link href={`/article/${article.id}`} key={article.id}>
                         <div className={styles.article}>
-                            <img src={article.img} alt="" className={styles.photo}/>
+                            <div className={styles["photo-container"]}>
+                                <img src={article.img} alt="" className={styles.photo}/>
+                                <div className={styles.overlay}>
+                                    <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
+                                </div>
+                            </div>
                             <div className={styles.container}>
                                 <span className={styles.title}>{article.title}</span>
                                 <div className={styles.content}>
