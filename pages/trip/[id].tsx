@@ -70,7 +70,9 @@ export default class Post extends React.Component<Props, any> {
             <div className={styles.article}>
               <Head>
                 <title>{this.props.postData.title}</title>
-                <meta name="description" content={this.props.postData.hint}/>
+                <meta name="description" content={`
+                  ${this.props.postData.hint} 標籤: ${this.props.postData.tags.toString()}
+                `}/>
               </Head>
               <article>
                 <img src={this.props.postData.img} alt="" className={styles["top-img"]}/>
@@ -86,16 +88,19 @@ export default class Post extends React.Component<Props, any> {
                         }
                     </div>
                     <div className={styles.hint}>{this.props.postData.hint}</div>
+                    { this.props.postData.season &&
                     <p className={styles.season}>
                         適合季節：{this.props.postData.season}
                     </p>
+                    }
+                    { this.props.postData.map &&
                     <iframe
                         src={this.props.postData.map}
                         className={styles.map}
                         allowFullScreen={true}
                         loading="lazy">    
                     </iframe>
-                    
+                    }
                     <div>
                     {/* <Date dateString={postData.date} /> */}
                     </div>
