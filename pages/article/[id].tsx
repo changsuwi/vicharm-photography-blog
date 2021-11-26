@@ -72,6 +72,9 @@ export default class Post extends React.Component<Props, any> {
                 <meta name="description" content={`
                   ${this.props.postData.hint} 標籤: ${this.props.postData.tags.toString()}
                 `}/>
+                <meta property="og:title" content={this.props.postData.title} />
+                <meta property="og:description" content={this.props.postData.hint} />
+                <meta property="og:image" content="/favicon.ico" />
               </Head>
               <article>
                 <img src={this.props.postData.img} alt="" className={styles["top-img"]}/>

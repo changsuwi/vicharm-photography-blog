@@ -33,6 +33,9 @@ export default class TripList extends React.Component<Props, any> {
                 <Head>
                     <title>旅程指南</title>
                     <meta name="description" content="秘境美景攻略與推薦旅程都在這" />
+                    <meta property="og:title" content="Vicharm 攝影與旅行日誌-旅程指南" />
+                    <meta property="og:description" content="秘境美景攻略與推薦旅程都在這" />
+                    <meta property="og:image" content="/favicon.ico" />
                 </Head>
                 <div className={styles["top-landing"]}>
                     {/* 放標題     */}

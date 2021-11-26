@@ -33,6 +33,9 @@ export default class ArticleList extends React.Component<Props, any> {
                 <Head>
                     <title>旅行紀錄</title>
                     <meta name="description" content="用相機與文字記錄每次旅行的美好"/>
+                    <meta property="og:title" content="Vicharm 攝影與旅行日誌-旅行紀錄" />
+                    <meta property="og:description" content="用相機與文字記錄每次旅行的美好" />
+                    <meta property="og:image" content="/favicon.ico" />
                 </Head>
                 <div className={styles["top-landing"]}>
                     {/* 放標題     */}

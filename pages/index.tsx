@@ -42,6 +42,9 @@ export default class Home extends React.Component<any, any> {
           <title>Vicharm 攝影與旅行日誌</title>
           <meta name="description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
           <link rel="icon" href="/favicon.ico" />
+          <meta property="og:title" content="Vicharm 攝影與旅行日誌" />
+          <meta property="og:description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
+          <meta property="og:image" content="/favicon.ico" />
         </Head>
 
         <main className={styles.main}>
