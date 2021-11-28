@@ -8,6 +8,7 @@ season: ['秋季']
 hint: '秋季旅拍台中，這次兩天一夜的時間探索忘憂谷, 九天夕陽之路與大肚藍色公路！' 
 map: 'https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d116423.51365389508!2d120.5576249449258!3d24.233565166198378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x34693d1438fb3d3f%3A0xb7b4ebd02f1906b6!2zNDAw5Y-w5Lit5biC5Lit5Y2A5Y-w54Gj5aSn6YGT5LiA5q61MeiZn-iHuuS4reeBq-i7iuermQ!3m2!1d24.137287999999998!2d120.6869251!4m5!1s0x34693fb201b59ad3%3A0xb9e8fa40b89e34ac!2z5Y-w5Lit5biC5aSn6IKa5Y2A5aSn6IKa6JeN6Imy5YWs6Lev5aSn6IKa6JeN6Imy5YWs6Lev!3m2!1d24.156167!2d120.5682956!4m5!1s0x346911bc95e9da81%3A0x59e62cba26b55828!2z5Y-w5Lit5biC5aSW5Z-U5Y2A5rqq5bqV6Lev5aSW5Z-U5b-Y5oaC6LC3!3m2!1d24.3084241!2d120.64645929999999!4m5!1s0x3469159b6e1f5211%3A0x755e1419f34c272e!2zNDMz5Y-w5Lit5biC5rKZ6bm_5Y2A5Lmd5aSp6Zye5YWJ5LmL5qi5!3m2!1d24.224195299999998!2d120.59934489999999!4m5!1s0x34693d1438fb3d3f%3A0xb7b4ebd02f1906b6!2z5Y-w5Lit5biC5Lit5Y2A5Y-w54Gj5aSn6YGT5LiA5q616Ie65Lit54Gr6LuK56uZ!3m2!1d24.137287999999998!2d120.6869251!5e0!3m2!1szh-TW!2stw!4v1637397049660!5m2!1szh-TW!2stw'
 preview: '秋季外埔忘憂谷, 九天夕陽之樹與大肚藍色公路'
+keyword: ['外埔忘憂谷', '九天夕陽之樹', '忘憂公車', '高速公路下遊樂場', '大肚藍色公路']
 ---
 
 出社會後就無法像學生時期一樣自由，平日出去旅行已變成奢侈的享受，這個週末規劃了一場兩天一夜的小旅行，剛好是忘憂谷黃金稻浪的時節(忘憂谷的攻略可參考[2021台中外埔忘憂谷秘境旅行攻略](https://vicharm-life.com/trip/%E5%8F%B0%E4%B8%AD%E5%A4%96%E5%9F%94%E5%BF%98%E6%86%82%E8%B0%B7%E6%97%85%E8%A1%8C%E6%94%BB%E7%95%A5))

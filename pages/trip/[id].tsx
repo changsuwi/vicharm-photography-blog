@@ -71,7 +71,9 @@ export default class Post extends React.Component<Props, any> {
               <Head>
                 <title>{this.props.postData.title}</title>
                 <meta name="description" content={`
-                  ${this.props.postData.hint} 標籤: ${this.props.postData.tags.toString()}
+                  ${this.props.postData.hint}
+                  標籤: ${this.props.postData.tags.toString()}
+                  關鍵字: ${this.props.postData.keyword.toString()}
                 `}/>
                 <meta property="og:title" content={this.props.postData.title} />
                 <meta property="og:description" content={this.props.postData.hint} />
