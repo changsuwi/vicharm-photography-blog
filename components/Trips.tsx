@@ -10,7 +10,7 @@ interface Props {
 }
 export default class Trips extends React.Component<Props, any> {
     render(): JSX.Element {
-        const trips = this.props.trips.length > 3 ? this.props.trips.slice(0, 3) : this.props.trips;
+        const trips = this.props.trips.length > 3 && !this.props.isListPage ? this.props.trips.slice(0, 3) : this.props.trips;
         return (
             <div className={`${styles.trips}  ${this.props.isListPage ? styles.list : ""}`}>
                 {trips.map((trip: any) => (
