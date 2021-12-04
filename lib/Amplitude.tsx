@@ -38,4 +38,18 @@ export default class Amplitude {
         amplitude.getInstance().logEvent(`[${event.category}][${event.action}]`, event);
         //console.log(`event: [${event.category}][${event.action}]`, event);
     }
+
+    static leavePageEvent(document: Document, id: any, maxScroll: number, type: string) {
+        const body = document.body;
+        const html = document.documentElement;
+        const pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+            html.clientHeight, html.scrollHeight, html.offsetHeight );
+        
+        Amplitude.analyticsEvent({
+            category: `Effectiveness ${type}`,
+            action: `leave ${type}`,
+            id: id,
+            maxScrollPercentage: Math.round(((maxScroll + html.clientHeight) / pageHeight) * 100)
+        })
+    }
 }

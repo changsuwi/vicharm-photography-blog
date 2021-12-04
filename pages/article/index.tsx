@@ -22,9 +22,22 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 }
 
 export default class ArticleList extends React.Component<Props, any> {
+    private maxScroll = 0;
+
     componentDidMount(): void {
         Amplitude.init();
         Amplitude.analyticsPageView("/article-list");
+    }
+
+    scrollHandler(e: Event): void {
+        const currentScrollY = window.scrollY;
+        if(currentScrollY > this.maxScroll) this.maxScroll = currentScrollY;
+      }
+  
+    componentWillUnmount(): void {
+        document.removeEventListener("scroll", this.scrollHandler);
+
+        Amplitude.leavePageEvent(document, "article-list", this.maxScroll, "article-list");
     }
 
     render(): JSX.Element {

@@ -52,17 +52,7 @@ export default class Post extends React.Component<Props, any> {
     componentWillUnmount(): void {
       document.removeEventListener("scroll", this.scrollHandler);
 
-      const body = document.body;
-      const html = document.documentElement;
-      const pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-        html.clientHeight, html.scrollHeight, html.offsetHeight );
-      
-      Amplitude.analyticsEvent({
-        category: "Effectiveness trip",
-        action: "leave trip",
-        id: this.props.postData.id,
-        maxScrollPercentage: Math.round(((this.maxScroll + html.clientHeight) / pageHeight) * 100)
-      })
+      Amplitude.leavePageEvent(document, this.props.postData.id, this.maxScroll, "trip");
     }
 
     render(): JSX.Element {
