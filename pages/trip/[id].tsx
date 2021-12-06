@@ -70,7 +70,7 @@ export default class Post extends React.Component<Props, any> {
                 <meta property="og:image" content="/favicon.ico" />
               </Head>
               <article>
-                <img src={this.props.postData.img} alt="" className={styles["top-img"]}/>
+                <img src={this.props.postData.img} alt="" className={styles["top-img"]} loading="lazy"/>
                 <div className={styles.container}>
                     <h1 >{this.props.postData.title}</h1>
                     <div className={styles.tags}>

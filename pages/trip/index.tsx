@@ -53,7 +53,7 @@ export default class TripList extends React.Component<Props, any> {
                     <meta property="og:image" content="/favicon.ico" />
                 </Head>
                 <div className={styles["top-landing"]}>
-                    {/* 放標題     */}
+                    <img src="https://ik.imagekit.io/vicharm/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452" alt="" className={styles.background} loading="lazy"/>
                 </div>
                 <Trips trips={this.props.postData} isListPage={true}/>
             </div>

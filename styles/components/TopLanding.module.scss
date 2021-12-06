@@ -1,8 +1,5 @@
 @import "styles/variables";
 .landing {
-    background-image: url("https://ik.imagekit.io/vicharm/九份/50185219987_dd610f128f_o_xEr4kVwGoaE.jpeg?updatedAt=1637218851648");
-    background-size: cover;
-    background-position: 60% 50%;
     width: 100%;
     height: 568px;
     text-align: center;
@@ -10,6 +7,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
 
     @media (min-width: 375px) {
         height: 667px;
@@ -19,8 +18,17 @@
         height: 900px;
     }
 
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
     .text-container {
         margin: 0 6% 50px 6%;
+        z-index: 1;
         .title {
             font-size: 30px;
             font-weight: 700;

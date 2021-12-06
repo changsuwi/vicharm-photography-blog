@@ -51,7 +51,7 @@ export default class ArticleList extends React.Component<Props, any> {
                     <meta property="og:image" content="/favicon.ico" />
                 </Head>
                 <div className={styles["top-landing"]}>
-                    {/* 放標題     */}
+                    <img src="https://ik.imagekit.io/vicharm/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301" alt="" className={styles.background} loading="lazy"/>
                 </div>
                 <Articles articles={this.props.postData} isListPage={true}/>
             </div>

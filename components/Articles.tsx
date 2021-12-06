@@ -17,7 +17,7 @@ export default class Articles extends React.Component<Props, any> {
                     <Link href={`/article/${article.id}`} key={article.id}>
                         <div className={styles.article}>
                             <div className={styles["photo-container"]}>
-                                <img src={article.img} alt="" className={styles.photo}/>
+                                <img src={article.img} alt="" className={styles.photo} loading="lazy" />
                                 <div className={styles.overlay}>
                                     <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
                                 </div>

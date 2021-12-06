@@ -17,7 +17,7 @@ export default class Trips extends React.Component<Props, any> {
                     <Link href={`/trip/${trip.id}`} key={trip.id}>
                         <div className={styles.trip}>
                             <div className={styles["photo-container"]}>
-                                <img src={trip.img} alt="" className={styles.photo}/>
+                                <img src={trip.img} alt="" className={styles.photo} loading="lazy"/>
                                 <div className={styles.overlay}>
                                     <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
                                 </div>

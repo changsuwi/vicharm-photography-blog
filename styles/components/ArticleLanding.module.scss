@@ -2,14 +2,19 @@
 .article-landing {
     width: 100vw;
     height: 568px;
-    background-image: url("https://ik.imagekit.io/vicharm/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301");
-    background-size: cover;
-    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     position: relative;
+
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 
     .container {
         position: absolute;
