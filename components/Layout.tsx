@@ -39,7 +39,7 @@ export default class Articles extends React.Component<Props, any> {
     render(): JSX.Element {
         return (
             <div className={styles.layout}>
-                <header className={`${styles.header} ${this.state.sticky && styles.sticky}`} >
+                <div className={`${styles.header} ${this.state.sticky && styles.sticky}`} >
                     <Link href="/">
                         <div className={styles.icon}/>
                     </Link>
@@ -73,7 +73,7 @@ export default class Articles extends React.Component<Props, any> {
                             <FontAwesomeIcon icon={faInstagram} width="18px" height="18px"/>
                         </a>
                     </div>
-                </header>
+                </div>
                 {this.props.children}
                 <footer className={styles.footer}>
                     <p>© 2021 Vicharm. All rights reserved</p>
