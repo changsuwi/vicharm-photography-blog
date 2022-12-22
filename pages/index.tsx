@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 
@@ -14,7 +14,8 @@ import Trips from "../components/Trips";
 import Amplitude from "../lib/Amplitude";
 
 interface Props {
-  postData: any
+  tripData: any;
+  articleData: any;
 }
 
 export const getStaticProps: GetStaticProps = async (content: any) => {
@@ -28,47 +29,45 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
   }
 }
 
-export default class Home extends React.Component<any, any> {
-  private maxScroll = 0;
+export default function Home(props: Props) {
+  let maxScroll = 0;
 
-  componentDidMount(): void {
+  const scrollHandler = (e: Event) => {
+    const currentScrollY = window.scrollY;
+    if(currentScrollY > maxScroll) maxScroll = currentScrollY;
+  }
+
+  useEffect(() => {
     Amplitude.init();
     Amplitude.analyticsPageView("/");
-  }
 
-  scrollHandler(e: Event): void {
-    const currentScrollY = window.scrollY;
-    if(currentScrollY > this.maxScroll) this.maxScroll = currentScrollY;
-  }
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+      Amplitude.leavePageEvent(document, "home", maxScroll, "home");
+    }
+  }, []) 
 
-  componentWillUnmount(): void {
-    document.removeEventListener("scroll", this.scrollHandler);
+  
+  return(
+    <div className={styles.container}>
+      <Head>
+        <title>Vicharm 攝影與旅行日誌</title>
+        <meta name="description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Vicharm 攝影與旅行日誌" />
+        <meta property="og:description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
+        <meta property="og:image" content="/favicon.ico" />
+      </Head>
 
-    Amplitude.leavePageEvent(document, "home", this.maxScroll, "home");
-  }
-
-  render(): JSX.Element {
-    return(
-      <div className={styles.container}>
-        <Head>
-          <title>Vicharm 攝影與旅行日誌</title>
-          <meta name="description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
-          <link rel="icon" href="/favicon.ico" />
-          <meta property="og:title" content="Vicharm 攝影與旅行日誌" />
-          <meta property="og:description" content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好" />
-          <meta property="og:image" content="/favicon.ico" />
-        </Head>
-
-        <main className={styles.main}>
-          <TopLanding />
-          <Introduction />
-          <TripLanding />
-          <Trips trips={this.props.tripData} isListPage={false}/>
-          <ArticleLanding />
-          <Articles articles={this.props.articleData} isListPage={false}/>
-        </main>
-      </div>
-    )
-  }
+      <main className={styles.main}>
+        <TopLanding />
+        <Introduction />
+        <TripLanding />
+        <Trips trips={props.tripData} isListPage={false}/>
+        <ArticleLanding />
+        <Articles articles={props.articleData} isListPage={false}/>
+      </main>
+    </div>
+  )
 
 }
