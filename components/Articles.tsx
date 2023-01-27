@@ -14,8 +14,8 @@ export default function Articles(props: Props) {
     return (
         <div className={`${styles.articles} ${props.isListPage ? styles.list : ""}`}>
             {articles.map((article: any) => (
-                <Link href={`/article/${article.id}`} key={article.id}>
-                    <div className={styles.article}>
+                <Link href={`/article/${article.id}`} key={article.id} >
+                    <div className={styles.article} data-test-class="article">
                         <div className={styles["photo-container"]}>
                             <img src={article.img} alt="" className={styles.photo} loading="lazy" />
                             <div className={styles.overlay}>

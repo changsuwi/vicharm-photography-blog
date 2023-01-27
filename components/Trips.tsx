@@ -15,7 +15,7 @@ export default function Trips(props: Props) {
         <div className={`${styles.trips}  ${props.isListPage ? styles.list : ""}`}>
             {trips.map((trip: any) => (
                 <Link href={`/trip/${trip.id}`} key={trip.id}>
-                    <div className={styles.trip}>
+                    <div className={styles.trip} data-test-class="trip">
                         <div className={styles["photo-container"]}>
                             <img src={trip.img} alt="" className={styles.photo} loading="lazy"/>
                             <div className={styles.overlay}>
