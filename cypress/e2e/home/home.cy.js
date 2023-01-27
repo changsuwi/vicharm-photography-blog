@@ -17,7 +17,7 @@ describe('When user visit home page', () => {
   })
 
   it('displays three articles and three trips', () => {
-    cy.get('[data-test-class="article"]').should('have.length', 3)
-    cy.get('[data-test-class="trip"]').should('have.length', 3)
+    cy.get('[data-testid="article"]').should('have.length', 3)
+    cy.get('[data-testid="trip"]').should('have.length', 3)
   })
 })
