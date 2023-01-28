@@ -3,7 +3,8 @@ import Link from "next/link";
 import styles from "../styles/components/Layout.module.scss";
 import Amplitude from "../lib/Amplitude";
 import { useState } from "react";
-import { IGIcon } from "./common/ig";
+import { IGIcon } from "./common/IGIcon";
+import GA from "./common/GA";
 
 interface Props {
   children: any;
@@ -28,50 +29,53 @@ export default function Articles(props: Props) {
   }, []);
 
   return (
-    <div className={styles.layout}>
-      <div className={`${styles.header} ${sticky && styles.sticky}`}>
-        <Link href="/">
-          <div className={styles.icon} />
-        </Link>
-
-        <div className={styles["nav-list"]}>
-          <Link href="/trip">
-            <a>旅程指南</a>
+    <>
+      <GA />
+      <div className={styles.layout}>
+        <div className={`${styles.header} ${sticky && styles.sticky}`}>
+          <Link href="/">
+            <div className={styles.icon} />
           </Link>
 
-          <Link href="/article">
-            <a className="mr-0">旅行紀錄</a>
-          </Link>
+          <div className={styles["nav-list"]}>
+            <Link href="/trip">
+              <a>旅程指南</a>
+            </Link>
 
-          <Link href="/article">
-            <a className="hide">攝影紀錄</a>
-          </Link>
+            <Link href="/article">
+              <a className="mr-0">旅行紀錄</a>
+            </Link>
 
-          <Link href="/article">
-            <a className="hide">景點列表</a>
-          </Link>
+            <Link href="/article">
+              <a className="hide">攝影紀錄</a>
+            </Link>
+
+            <Link href="/article">
+              <a className="hide">景點列表</a>
+            </Link>
+          </div>
+          <IGIcon
+            onClick={() =>
+              Amplitude.analyticsEvent({
+                category: "Navigation IG",
+                action: "Click Header IG",
+              })
+            }
+          />
         </div>
-        <IGIcon
-          onClick={() =>
-            Amplitude.analyticsEvent({
-              category: "Navigation IG",
-              action: "Click Header IG",
-            })
-          }
-        />
+        {props.children}
+        <footer className={styles.footer}>
+          <p>© 2023 Vicharm. All rights reserved</p>
+          <IGIcon
+            onClick={() =>
+              Amplitude.analyticsEvent({
+                category: "Navigation IG",
+                action: "Click Footer IG",
+              })
+            }
+          />
+        </footer>
       </div>
-      {props.children}
-      <footer className={styles.footer}>
-        <p>© 2023 Vicharm. All rights reserved</p>
-        <IGIcon
-          onClick={() =>
-            Amplitude.analyticsEvent({
-              category: "Navigation IG",
-              action: "Click Footer IG",
-            })
-          }
-        />
-      </footer>
-    </div>
+    </>
   );
 }
