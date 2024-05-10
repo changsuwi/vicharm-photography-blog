@@ -1,7 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
 import styles from "../styles/components/Layout.module.scss";
-import Amplitude from "../lib/Amplitude";
 import { useState } from "react";
 import { IGIcon } from "./common/IGIcon";
 import GA from "./common/GA";
@@ -54,26 +53,12 @@ export default function Articles(props: Props) {
               <a className="hide">景點列表</a>
             </Link>
           </div>
-          <IGIcon
-            onClick={() =>
-              Amplitude.analyticsEvent({
-                category: "Navigation IG",
-                action: "Click Header IG",
-              })
-            }
-          />
+          <IGIcon />
         </div>
         {props.children}
         <footer className={styles.footer}>
           <p>© 2023 Vicharm. All rights reserved</p>
-          <IGIcon
-            onClick={() =>
-              Amplitude.analyticsEvent({
-                category: "Navigation IG",
-                action: "Click Footer IG",
-              })
-            }
-          />
+          <IGIcon />
         </footer>
       </div>
     </>
