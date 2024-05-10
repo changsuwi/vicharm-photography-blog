@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head'
+import Image from "next/image";
 import * as React from "react";
 import { useEffect } from "react";
 
@@ -50,7 +51,7 @@ export default function ArticleList(props: Props) {
         <meta property="og:image" content="/favicon.ico" />
       </Head>
       <div className={styles["top-landing"]}>
-        <img src="https://ik.imagekit.io/vicharm/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301" alt="" className={styles.background} loading="lazy"/>
+        <Image src="https://ik.imagekit.io/vicharm/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301" alt="" className={styles.background} layout="fill" objectFit="cover"/>
       </div>
       <Articles articles={props.postData} isListPage={true}/>
     </div>

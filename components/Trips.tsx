@@ -1,5 +1,6 @@
 import { faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from 'next/link'
 import * as React from "react";
 
@@ -18,7 +19,7 @@ export default function Trips(props: Props) {
         <Link href={`/trip/${trip.id}`} key={trip.id}>
           <div className={styles.trip} data-testid="trip">
             <div className={styles["photo-container"]}>
-              <img src={trip.img} alt="" className={styles.photo} loading="lazy"/>
+              <Image src={trip.img} alt=""  loading="lazy" layout="fill" objectFit="cover" />
               <div className={styles.overlay}>
                 <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
               </div>

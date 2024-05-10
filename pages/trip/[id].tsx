@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head'
+import Image from "next/image";
 import * as React from "react";
 import { useEffect } from "react";
 
@@ -67,7 +68,9 @@ export default function Post(props: Props) {
         <meta property="og:image" content="/favicon.ico" />
       </Head>
       <article>
-        <img src={props.postData.img} alt="" className={styles["top-img"]} loading="lazy"/>
+        <div className={styles["top-img-container"]}>
+          <Image src={props.postData.img} alt="" loading="lazy"  layout="fill" objectFit="cover"/>
+        </div>
         <div className={styles.container}>
           <h1 >{props.postData.title}</h1>
           <div className={styles.tags}>
