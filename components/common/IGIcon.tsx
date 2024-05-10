@@ -8,17 +8,19 @@ export function IGIcon() {
   return (
     <div className={styles["social-media-list"]}>
       <Link
-        href={"https://www.instagram.com/vic_chang_life/"}
+        href={process.env.IG_URL || "https://www.instagram.com/vic_chang_life/"}
         target="_blank"
         rel="noreferrer"
-        onClick={() => {
-          Amplitude.analyticsEvent({
-            category: "Navigation IG",
-            action: "Click Header IG",
-          });
-        }}
       >
-        <a className={styles.ig}>
+        <a
+          className={styles.ig}
+          onClick={() => {
+            Amplitude.analyticsEvent({
+              category: "Navigation IG",
+              action: "Click Header IG",
+            });
+          }}
+        >
           <FontAwesomeIcon icon={faInstagram} width="18px" />
         </a>
       </Link>
