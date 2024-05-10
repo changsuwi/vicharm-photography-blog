@@ -66,6 +66,7 @@ export default function ArticleList(props: Props) {
           layout="fill"
           objectFit="cover"
           loading="eager"
+          priority
         />
       </div>
       <Articles articles={props.postData} isListPage={true} />

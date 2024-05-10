@@ -63,6 +63,7 @@ export default function TripList(props: Props) {
           layout="fill"
           objectFit="cover"
           loading="eager"
+          priority
         />
       </div>
       <Trips trips={props.postData} isListPage={true} />
