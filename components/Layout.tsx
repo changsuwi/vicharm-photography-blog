@@ -1,9 +1,10 @@
-import * as React from "react";
 import Link from "next/link";
-import styles from "../styles/components/Layout.module.scss";
+import * as React from "react";
 import { useState } from "react";
-import { IGIcon } from "./common/IGIcon";
+
+import styles from "../styles/components/Layout.module.scss";
 import GA from "./common/GA";
+import { IGIcon } from "./common/IGIcon";
 
 interface Props {
   children: any;

@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
-
-import Introduction from '../components/Introduction'
-import TopLanding from '../components/TopLanding'
 import { GetStaticProps } from "next";
-import { getSortedPostsData } from '../lib/post'
+import Head from 'next/head'
+import React, { useEffect } from "react";
+
 import ArticleLanding from '../components/ArticleLanding'
 import Articles from '../components/Articles'
+import Introduction from '../components/Introduction'
+import TopLanding from '../components/TopLanding'
 import TripLanding from '../components/TripLanding'
 import Trips from "../components/Trips";
-
 import Amplitude from "../lib/Amplitude";
+import { getSortedPostsData } from '../lib/post'
+import styles from '../styles/Home.module.scss'
 
 interface Props {
   tripData: any;

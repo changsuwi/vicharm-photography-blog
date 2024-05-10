@@ -1,8 +1,9 @@
-import styles from "../../styles/components/Layout.module.scss";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+
 import Amplitude from "../../lib/Amplitude";
+import styles from "../../styles/components/Layout.module.scss";
 
 export function IGIcon() {
   return (
