@@ -69,7 +69,7 @@ export default function Post(props: Props) {
       </Head>
       <article>
         <div className={styles["top-img-container"]}>
-          <Image src={props.postData.img} alt="" loading="lazy"  layout="fill" objectFit="cover"/>
+          <Image src={props.postData.img} alt="" loading="eager"  layout="fill" objectFit="cover" priority/>
         </div>
         
         <div className={styles.container}>
