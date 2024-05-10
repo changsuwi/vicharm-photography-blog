@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head'
+import Image from "next/image";
 import * as React from "react";
 import { useEffect } from "react";
 
@@ -53,7 +54,7 @@ export default function TripList(props: Props) {
         <meta property="og:image" content="/favicon.ico" />
       </Head>
       <div className={styles["top-landing"]}>
-        <img src="https://ik.imagekit.io/vicharm/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452" alt="" className={styles.background} loading="lazy"/>
+        <Image src="https://ik.imagekit.io/vicharm/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452" alt="" className={styles.background} layout="fill" objectFit="cover"/>
       </div>
       <Trips trips={props.postData} isListPage={true}/>
     </div>
