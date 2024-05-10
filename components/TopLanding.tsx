@@ -11,6 +11,7 @@ export default function TopLanding() {
         alt=""
         className={styles.background}
         layout="fill"
+        loading="eager"
       />
       <div className={styles["text-container"]}>
         <span className={styles.title}>Vicharm 攝影旅行日誌</span>
