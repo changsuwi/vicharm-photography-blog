@@ -13,5 +13,5 @@ A blog system helps me write articles and manage them.
 2. Next.js
 3. SCSS
 4. [Amplitude](https://amplitude.com/)
-5. [Netlify](https://www.netlify.com/)
+5. [Vercel](https://vercel.com/)
 
