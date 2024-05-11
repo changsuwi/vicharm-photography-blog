@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head'
-import Image from "next/image";
 import * as React from "react";
 import { useEffect } from "react";
 
+import MyImage from "../../components/common/MyImage";
 import Amplitude from "../../lib/Amplitude";
 import { getAllPostIds, getPostData } from '../../lib/post'
 import styles from "../../styles/Post.module.scss";
@@ -69,7 +69,7 @@ export default function Post(props: Props) {
       </Head>
       <article>
         <div className={styles["top-img-container"]}>
-          <Image src={props.postData.img} alt="" loading="eager"  layout="fill" objectFit="cover" priority />
+          <MyImage src={props.postData.img} alt="" loading="eager"  layout="fill" objectFit="cover" priority />
         </div>
         <div className={styles.container}>
           <h1 >{props.postData.title}</h1>
