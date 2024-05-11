@@ -1,7 +1,7 @@
 ---
 title: '台中旅行攝影紀錄part1'
 date: '2021-11-06'
-img: 'https://ik.imagekit.io/vicharm/台中2021/_DSC6076-拷貝_m18ycCrgh.jpg?updatedAt=1637165088205'
+img: '/台中2021/_DSC6076-拷貝_m18ycCrgh.jpg?updatedAt=1637165088205'
 tags: ['台中景點', '外埔忘憂谷', '九天夕陽之樹', '大肚藍色公路', '網美景點', '攝影點分享']
 recommendation: 4
 season: ['秋季']

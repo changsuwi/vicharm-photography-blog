@@ -3,12 +3,13 @@ import router from "next/router";
 import * as React from "react";
 
 import styles from "../styles/components/TripLanding.module.scss";
+import MyImage from "./common/MyImage";
 
 export default function TripLanding() {
   return (
     <div className={styles["trip-landing"]}>
-      <Image
-        src="https://ik.imagekit.io/vicharm/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452"
+      <MyImage
+        src="/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452"
         alt=""
         className={styles.background}
         loading="lazy"
