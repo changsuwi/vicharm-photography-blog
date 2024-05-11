@@ -13,7 +13,7 @@ export default function TripLanding() {
         alt=""
         className={styles.background}
         loading="lazy"
-        layout="fill"
+        fill
       />
       <div className={styles.container}>
         <span>旅行紀錄</span>

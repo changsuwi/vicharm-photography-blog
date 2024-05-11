@@ -63,8 +63,8 @@ export default function ArticleList(props: Props) {
           src="/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301"
           alt=""
           className={styles.background}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{objectFit: "cover"}}
           loading="eager"
           priority
         />

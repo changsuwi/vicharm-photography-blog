@@ -16,10 +16,10 @@ export default function Trips(props: Props) {
   return (
     <div className={`${styles.trips}  ${props.isListPage ? styles.list : ""}`}>
       {trips.map((trip: any) => (
-        <Link href={`/trip/${trip.id}`} key={trip.id}>
+        <Link href={`/trip/${trip.id}`} key={trip.id} className={styles.link}>
           <div className={styles.trip} data-testid="trip">
             <div className={styles["photo-container"]}>
-              <MyImage src={trip.img} alt=""  loading="lazy" layout="fill" objectFit="cover" />
+              <MyImage src={trip.img} alt="" loading="lazy" fill style={{objectFit: "cover"}} />
               <div className={styles.overlay}>
                 <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
               </div>

@@ -39,19 +39,19 @@ export default function Articles(props: Props) {
 
           <div className={styles["nav-list"]}>
             <Link href="/trip">
-              <a>旅程指南</a>
+              旅程指南
             </Link>
 
-            <Link href="/article">
-              <a className="mr-0">旅行紀錄</a>
+            <Link href="/article" className="mr-0">
+              旅行紀錄
             </Link>
 
-            <Link href="/article">
-              <a className="hide">攝影紀錄</a>
+            <Link href="/article" className="hide">
+              攝影紀錄
             </Link>
 
-            <Link href="/article">
-              <a className="hide">景點列表</a>
+            <Link href="/article" className="hide">
+              景點列表
             </Link>
           </div>
           <IGIcon />
