@@ -19,7 +19,7 @@ export default function Articles(props: Props) {
         <Link href={`/article/${article.id}`} key={article.id} className={styles.link}>
           <div className={styles.article} data-testid="article">
             <div className={styles["photo-container"]}>
-              <MyImage src={article.img} alt="" className={styles.photo} loading="lazy" fill />
+              <MyImage src={article.img} alt="" className={styles.photo} loading="lazy" fill sizes="(min-width: 320px) 300px, (min-width: 768px) 320px, (min-width: 1024px) 480px, (min-width: 1440px) 640px" />
               <div className={styles.overlay}>
                 <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
               </div>
