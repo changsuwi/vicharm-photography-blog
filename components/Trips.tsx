@@ -19,7 +19,7 @@ export default function Trips(props: Props) {
         <Link href={`/trip/${trip.id}`} key={trip.id} className={styles.link}>
           <div className={styles.trip} data-testid="trip">
             <div className={styles["photo-container"]}>
-              <MyImage src={trip.img} alt="" loading="lazy" fill style={{objectFit: "cover"}} />
+              <MyImage src={trip.img} alt="" loading="lazy" fill style={{objectFit: "cover"}} sizes="(min-width: 320px) 300px, (min-width: 768px) 320px, (min-width: 1024px) 480px, (min-width: 1440px) 640px"/>
               <div className={styles.overlay}>
                 <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
               </div>
