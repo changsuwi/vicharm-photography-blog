@@ -33,7 +33,7 @@ export default function Articles(props: Props) {
       <GA />
       <div className={styles.layout}>
         <div className={`${styles.header} ${sticky && styles.sticky}`}>
-          <Link href="/">
+          <Link href="/" aria-label="Home">
             <div className={styles.icon} />
           </Link>
 

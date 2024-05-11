@@ -19,6 +19,7 @@ export function IGIcon() {
             action: "Click Header IG",
           });
         }}
+        aria-label="Instagram"
       >
         <FontAwesomeIcon icon={faInstagram} width="18px" />
       </Link>
