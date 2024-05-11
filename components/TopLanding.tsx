@@ -10,7 +10,7 @@ export default function TopLanding() {
         src="/九份/50185219987_dd610f128f_o_xEr4kVwGoaE.jpeg?updatedAt=1637218851648"
         alt=""
         className={styles.background}
-        layout="fill"
+        fill
         loading="eager"
         priority
       />

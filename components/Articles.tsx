@@ -1,6 +1,5 @@
 import { faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 import Link from 'next/link'
 import * as React from "react";
 
@@ -17,10 +16,10 @@ export default function Articles(props: Props) {
   return (
     <div className={`${styles.articles} ${props.isListPage ? styles.list : ""}`}>
       {articles.map((article: any) => (
-        <Link href={`/article/${article.id}`} key={article.id} >
+        <Link href={`/article/${article.id}`} key={article.id} className={styles.link}>
           <div className={styles.article} data-testid="article">
             <div className={styles["photo-container"]}>
-              <MyImage src={article.img} alt="" className={styles.photo} loading="lazy" layout="fill" />
+              <MyImage src={article.img} alt="" className={styles.photo} loading="lazy" fill />
               <div className={styles.overlay}>
                 <FontAwesomeIcon icon={faArrowRight} width="24px" height="24px" color="#f8f8f7"/>
               </div>

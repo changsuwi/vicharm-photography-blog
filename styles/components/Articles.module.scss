@@ -6,12 +6,13 @@
     width: 100%;
     justify-content: center;
     padding: 80px 2.5%;
+    gap: 2.5%;
 
     .article {
         display: flex;
         flex-direction: column;
         width: 300px;
-        margin: 0 2.5% 28px 2.5%;
+        margin-bottom:  28px;
         cursor: pointer;
         border-radius: 8px;
         background-color: white;
@@ -89,6 +90,13 @@
 
     @media (min-width: 1440px) {
         padding: 50px 8%;
+    }
+
+    .link {
+        width: 320px;
+        @media (min-width: 768px) {
+            width: 100%;
+        }
     }
 
     .article {
