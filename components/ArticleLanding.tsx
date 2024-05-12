@@ -9,7 +9,7 @@ export default function TripLanding() {
   return (
     <div className={styles["article-landing"]}>
       <MyImage
-        src="/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg?updatedAt=1637218853301"
+        src="/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg"
         alt=""
         className={styles.background}
         loading="lazy"

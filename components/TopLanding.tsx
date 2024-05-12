@@ -7,7 +7,7 @@ export default function TopLanding() {
   return (
     <div className={styles.landing}>
       <MyImage
-        src="/九份/50185219987_dd610f128f_o_xEr4kVwGoaE.jpeg?updatedAt=1637218851648"
+        src="/九份/50185219987_dd610f128f_o_xEr4kVwGoaE.jpeg"
         alt=""
         className={styles.background}
         fill

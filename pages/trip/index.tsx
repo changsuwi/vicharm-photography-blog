@@ -57,7 +57,7 @@ export default function TripList(props: Props) {
       </Head>
       <div className={styles["top-landing"]}>
         <MyImage
-          src="/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg?updatedAt=1637215858452"
+          src="/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg"
           alt=""
           className={styles.background}
           fill
