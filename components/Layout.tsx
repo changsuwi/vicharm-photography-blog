@@ -1,15 +1,13 @@
+import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
-import * as React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
-import styles from "../styles/components/Layout.module.scss";
 import GA from "./common/GA";
 import { IGIcon } from "./common/IGIcon";
 
-interface Props {
-  children: any;
-}
-export default function Articles(props: Props) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const [sticky, setSticky] = useState(false);
 
   const handleScroll = () => {
@@ -20,7 +18,7 @@ export default function Articles(props: Props) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -31,34 +29,45 @@ export default function Articles(props: Props) {
   return (
     <>
       <GA />
-      <div className={styles.layout}>
-        <div className={`${styles.header} ${sticky && styles.sticky}`}>
+      <div className="">
+        <header
+          className={twMerge(
+            clsx(
+              "z-20 bg-transparent fixed top-0 mt-6 text-white flex justify-around items-center w-full h-[42px] transition-colors md:h-[46px] 2xl:h-[54px]",
+              sticky && "bg-white shadow-lg mt-0 text-slate-900"
+            )
+          )}
+        >
           <Link href="/" aria-label="Home">
-            <div className={styles.icon} />
+            <Image
+              src={sticky ? "/logo/logo.png" : "/logo/logo2.png"}
+              alt="logo"
+              width={42}
+              height={42}
+              className=""
+            />
           </Link>
 
-          <div className={styles["nav-list"]}>
-            <Link href="/trip">
-              旅程指南
-            </Link>
+          <div className="flex gap-10">
+            <Link href="/trip">旅程指南</Link>
 
-            <Link href="/article" className="mr-0">
+            <Link href="/article" className="">
               旅行紀錄
             </Link>
 
-            <Link href="/article" className="hide">
+            <Link href="/article" className="hidden">
               攝影紀錄
             </Link>
 
-            <Link href="/article" className="hide">
+            <Link href="/article" className="hidden">
               景點列表
             </Link>
           </div>
           <IGIcon />
-        </div>
-        {props.children}
-        <footer className={styles.footer}>
-          <p>© 2023 Vicharm. All rights reserved</p>
+        </header>
+        {children}
+        <footer className="w-full h-10 flex justify-around items-center py-4">
+          <p className="text-sm">© 2023 Vicharm. All rights reserved</p>
           <IGIcon />
         </footer>
       </div>

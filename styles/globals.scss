@@ -1,8 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif;
+  background-color: #f9fafb;
+  color: #1e293b;
+}
+
+h1 {
+  color: #0f172a;
 }
 
 a {
@@ -13,14 +23,6 @@ a {
 button {
   cursor: pointer;
   font-family : inherit;
-}
-
-.hide {
-  display: none !important;
-}
-
-.mr-0 {
-  margin-right: 0 !important;
 }
 
 * {
