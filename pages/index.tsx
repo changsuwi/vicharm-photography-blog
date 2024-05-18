@@ -10,11 +10,11 @@ import useScrollTrack from "../hooks/useScrollTrack";
 import { getSortedPostsData } from "../lib/post";
 import { PostCardView } from "../models/post";
 
-const PostCards = ({posts}: {posts: PostCardView[]}) => {
+const PostCards = ({posts, category}: {posts: PostCardView[], category: "trip" | "article"}) => {
   return (
     <div className="flex flex-wrap w-full items-center justify-center gap-4 px-4 py-12">
       {posts.map((post: PostCardView) => (
-        <PostCard data={post} category="trip" key={post.id} />
+        <PostCard data={post} category={category} key={post.id} />
       ))}
     </div>
   )
@@ -70,7 +70,7 @@ export default function Home(props: Props) {
           ctaText={"旅程指南列表"}
           ctaLink={"/trip"}
         />
-        <PostCards posts={props.tripData} />
+        <PostCards posts={props.tripData} category="trip" />
         <SectionLanding
           title="旅行紀錄"
           description={[
@@ -83,7 +83,7 @@ export default function Home(props: Props) {
           ctaText={"旅行紀錄列表"}
           ctaLink={"/article"}
         />
-        <PostCards posts={props.articleData} />
+        <PostCards posts={props.articleData} category="article" />
       </main>
     </div>
   );
