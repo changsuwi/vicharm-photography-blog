@@ -1,12 +1,9 @@
 import { GetStaticProps } from "next";
-import Head from 'next/head'
 import * as React from "react";
-import { useEffect } from "react";
 
-import MyImage from "../../components/common/MyImage";
-import Amplitude from "../../lib/Amplitude";
+import Article from "../../components/Article";
+import useScrollTrack from "../../hooks/useScrollTrack";
 import { getAllPostIds, getPostData } from '../../lib/post'
-import styles from "../../styles/Post.module.scss";
 
 interface Props {
     postData: any
@@ -30,80 +27,9 @@ export async function getStaticPaths() {
 }
 
 export default function Post(props: Props) {
-  let maxScroll = 0;
+  useScrollTrack(props.postData.id, "article");
 
-  const scrollHandler = (e: Event) => {
-    const currentScrollY = window.scrollY;
-    if(currentScrollY > maxScroll) maxScroll = currentScrollY;
-  }
-
-  useEffect(() => {
-    Amplitude.init();
-    Amplitude.analyticsPageView("/article", {
-      id: props.postData.id
-    });
-
-    document.addEventListener("scroll", scrollHandler);
-
-    return () => {
-      document.removeEventListener("scroll", scrollHandler);
-
-      Amplitude.leavePageEvent(document, props.postData.id, maxScroll, "article");
-    }
-  }, [])
-
-    
-    
   return (
-    <div className={styles.article}>
-      <Head>
-        <title>{props.postData.title}</title>
-        <meta name="description" content={`
-              ${props.postData.hint}
-              標籤: ${props.postData.tags.toString()}
-              關鍵字: ${props.postData.keyword.toString()}
-            `}/>
-        <meta property="og:title" content={props.postData.title} />
-        <meta property="og:description" content={props.postData.hint} />
-        <meta property="og:image" content="/favicon.ico" />
-      </Head>
-      <article>
-        <div className={styles["top-img-container"]}>
-          <MyImage src={props.postData.img} alt="" loading="eager"  fill style={{objectFit: "cover"}} priority/>
-        </div>
-        
-        <div className={styles.container}>
-          <h1 >{props.postData.title}</h1>
-          <div className={styles.tags}>
-            {
-              props.postData.tags.map((tag: any) => {
-                return (
-                  <a href={`/tag/${tag}`} target="_blank" rel="noreferrer" key={tag}>{`#${tag}`}</a>
-                )
-              })
-            }
-          </div>
-          <div className={styles.hint}>{props.postData.hint}</div>
-          { props.postData.season && 
-                <p className={styles.season}>
-                    適合季節：{props.postData.season}
-                </p>
-          }
-          { props.postData.map &&
-                <iframe
-                  src={props.postData.map}
-                  className={styles.map}
-                  allowFullScreen={true}
-                  loading="lazy">    
-                </iframe>
-          }
-          <div>
-            {/* <Date dateString={postData.date} /> */}
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: props.postData.contentHtml }} className={styles.content} />
-        </div>
-            
-      </article>
-    </div>
+    <Article data={props.postData} />
   )
 }

@@ -1,6 +1,4 @@
-@import "styles/variables";
 .article {
-    background-color: $desert-storm;
     display: flex;
     
     .top-img-container {
@@ -25,11 +23,12 @@
 
         h1 {
             text-align: center;
-            color: $gun-metal;
             font-weight: 400;
             font-size: 32px;
             margin-left: 4%;
             margin-right: 4%;
+            margin-bottom: 32px;
+            margin-top: 32px;
             
             @media (min-width: 768px) {
                 font-size: 40px;
@@ -86,21 +85,23 @@
         }
 
         .content {
-            color: baltic-sea;
             margin: 28px 0;
             width: 100%;
             
             h2 {
                 text-align: center;
                 font-size: 30px;
+                margin: 30px 0 30px;
             }
 
             h3 {
                 font-size: 22px;
+                margin: 22px 0 22px;
             }
 
             p{
                 font-size: 18px;
+                margin: 18px 0 18px;
             }
 
             p, h2, h3{
@@ -148,7 +149,7 @@
             }
 
             a {
-                color: $blue;
+                color: #7dd3fc;
                 font-style: italic;
                 text-decoration: underline;
             }
