@@ -30,7 +30,8 @@
     "remark-images": "^3.0.0",
     "remark-rehype": "^10.0.0",
     "remark-unwrap-images": "^3.0.0",
-    "sass": "^1.43.3"
+    "sass": "^1.43.3",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@types/react": "18.3.1",
