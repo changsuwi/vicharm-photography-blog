@@ -3,12 +3,11 @@ import Head from "next/head";
 import * as React from "react";
 import { useEffect } from "react";
 
-import Articles from "../../components/Articles";
-import MyImage from "../../components/common/MyImage";
+import PostCard from "../../components/PostCard";
+import PostCardPage from "../../components/PostCardPage";
 import Amplitude from "../../lib/Amplitude";
 import { getSortedPostsData } from "../../lib/post";
-import styles from "../../styles/ArticleList.module.scss";
-
+import { PostCardView } from "../../models/post";
 interface Props {
   postData: any;
 }
@@ -47,7 +46,7 @@ export default function ArticleList(props: Props) {
   }, []);
 
   return (
-    <div className={styles["article-list"]}>
+    <div>
       <Head>
         <title>旅行紀錄</title>
         <meta name="description" content="用相機與文字記錄每次旅行的美好" />
@@ -58,18 +57,17 @@ export default function ArticleList(props: Props) {
         />
         <meta property="og:image" content="/favicon.ico" />
       </Head>
-      <div className={styles["top-landing"]}>
-        <MyImage
-          src="/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg"
-          alt=""
-          className={styles.background}
-          fill
-          style={{objectFit: "cover"}}
-          loading="eager"
-          priority
-        />
-      </div>
-      <Articles articles={props.postData} isListPage={true} />
+
+      <PostCardPage landingImgSrc="/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg" category="article">
+        {props.postData.map((postcard: PostCardView) => (
+          <PostCard
+            data={postcard}
+            category={"article"}
+            key={postcard.id}
+            supportVerticalUI
+          />
+        ))}
+      </PostCardPage>
     </div>
   );
 }
