@@ -38,7 +38,6 @@ export default class Amplitude {
     amplitude
       .getInstance()
       .logEvent(`[${event.category}][${event.action}]`, event);
-    //console.log(`event: [${event.category}][${event.action}]`, event);
   }
 
   static leavePageEvent(
