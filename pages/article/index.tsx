@@ -1,11 +1,10 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import * as React from "react";
-import { useEffect } from "react";
 
 import PostCard from "../../components/PostCard";
 import PostCardPage from "../../components/PostCardPage";
-import Amplitude from "../../lib/Amplitude";
+import useScrollTrack from "../../hooks/useScrollTrack";
 import { getSortedPostsData } from "../../lib/post";
 import { PostCardView } from "../../models/post";
 interface Props {
@@ -22,28 +21,7 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 };
 
 export default function ArticleList(props: Props) {
-  let maxScroll = 0;
-
-  const scrollHandler = (e: Event) => {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > maxScroll) maxScroll = currentScrollY;
-  };
-
-  useEffect(() => {
-    Amplitude.init();
-    Amplitude.analyticsPageView("/article-list");
-
-    return () => {
-      document.removeEventListener("scroll", scrollHandler);
-
-      Amplitude.leavePageEvent(
-        document,
-        "article-list",
-        maxScroll,
-        "article-list"
-      );
-    };
-  }, []);
+  useScrollTrack("article-list", "article-list");
 
   return (
     <div>

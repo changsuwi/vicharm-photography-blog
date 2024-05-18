@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 };
 
 export default function TripList(props: Props) {
-  useScrollTrack("trip-list");
+  useScrollTrack("trip-list", "trip-list");
 
   return (
     <div>

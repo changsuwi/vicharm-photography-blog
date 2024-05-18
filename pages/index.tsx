@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React from "react";
 
 import Introduction from "../components/Introduction";
 import PostCard from "../components/PostCard";
 import SectionLanding from "../components/SectionLanding";
 import TopLanding from "../components/TopLanding";
-import Amplitude from "../lib/Amplitude";
+import useScrollTrack from "../hooks/useScrollTrack";
 import { getSortedPostsData } from "../lib/post";
 import { PostCardView } from "../models/post";
 
@@ -36,22 +36,7 @@ export const getStaticProps: GetStaticProps = async (content: any) => {
 };
 
 export default function Home(props: Props) {
-  let maxScroll = 0;
-
-  const scrollHandler = (e: Event) => {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > maxScroll) maxScroll = currentScrollY;
-  };
-
-  useEffect(() => {
-    Amplitude.init();
-    Amplitude.analyticsPageView("/");
-
-    return () => {
-      document.removeEventListener("scroll", scrollHandler);
-      Amplitude.leavePageEvent(document, "home", maxScroll, "home");
-    };
-  }, []);
+  useScrollTrack("home", "home");
 
   return (
     <div className="flex flex-col justify-center items-center">

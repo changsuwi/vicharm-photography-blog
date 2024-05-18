@@ -1,9 +1,8 @@
 import { GetStaticProps } from "next";
 import * as React from "react";
-import { useEffect } from "react";
 
 import Article from "../../components/Article";
-import Amplitude from "../../lib/Amplitude";
+import useScrollTrack from "../../hooks/useScrollTrack";
 import { getAllPostIds, getPostData } from '../../lib/post'
 
 interface Props {
@@ -28,30 +27,8 @@ export async function getStaticPaths() {
 }
 
 export default function Post(props: Props) {
-  let maxScroll = 0;
+  useScrollTrack(props.postData.id, "article");
 
-  const scrollHandler = (e: Event) => {
-    const currentScrollY = window.scrollY;
-    if(currentScrollY > maxScroll) maxScroll = currentScrollY;
-  }
-
-  useEffect(() => {
-    Amplitude.init();
-    Amplitude.analyticsPageView("/article", {
-      id: props.postData.id
-    });
-
-    document.addEventListener("scroll", scrollHandler);
-
-    return () => {
-      document.removeEventListener("scroll", scrollHandler);
-
-      Amplitude.leavePageEvent(document, props.postData.id, maxScroll, "article");
-    }
-  }, [])
-
-    
-    
   return (
     <Article data={props.postData} />
   )
