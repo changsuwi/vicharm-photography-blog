@@ -1,3 +1,4 @@
+'use client'
 import Image, { ImageProps } from "next/image";
 
 const imageKitLoader = ({ src, width, quality }: { src: string, width: number, quality?: number }) => {

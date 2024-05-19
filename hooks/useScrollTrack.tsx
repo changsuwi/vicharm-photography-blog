@@ -2,7 +2,9 @@ import { useEffect } from "react";
 
 import Amplitude from "../lib/Amplitude";
 
-export default function useScrollTrack(id: string, type: "trip-list" | "article-list" | "article" | "trip" | "home") {
+export type ScrollTrackType = "trip-list" | "article-list" | "article" | "trip" | "home";
+
+export default function useScrollTrack(id: string, type: ScrollTrackType) {
   let maxScroll = 0;
 
   const scrollHandler = (e: Event) => {

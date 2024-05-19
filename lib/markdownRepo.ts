@@ -28,15 +28,16 @@ export function getSortedPostsData(dirName: string) {
 export function getAllPostIds(dirName: string) {
   const fileNames = fs.readdirSync(path.join(base, dirName));
 
-  return fileNames.map((fileName) => ({
-    params: {
+  return fileNames.map((fileName) => (
+    {
       id: fileName.replace(/\.md$/, ""),
-    },
-  }));
+    }
+  ));
 }
 
 export async function getPostData(id: string, dirName: string): Promise<Post> {
-  const fullPath = path.join(base, dirName, `${id}.md`);
+  const fileName = `${decodeURIComponent(id)}.md`;
+  const fullPath = path.join(base, dirName, fileName);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
 

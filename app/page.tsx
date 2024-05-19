@@ -1,15 +1,13 @@
-import clsx from "clsx";
-import { GetStaticProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import React from "react";
+import clsx from 'clsx';
+import type { Metadata } from 'next'
+import Link from 'next/link';
 
-import MyImage from "../components/common/MyImage";
-import PostCard from "../components/PostCard";
-import useScrollTrack from "../hooks/useScrollTrack";
+import MyImage from '../components/common/MyImage';
+import PostCard from '../components/PostCard';
 import { getSortedPostsData } from "../lib/markdownRepo";
-import { PostCardView, PostMeta } from "../models/post";
-
+import { PostCardView, PostMeta } from '../models/post';
+import ScrollTracker from './scrollTracker';
+ 
 const TopLanding = () => (
   <div className="w-full h-[667px] relative overflow-hidden flex flex-col justify-center items-center color-white text-center lg:h-[900px]">
     <MyImage
@@ -20,8 +18,14 @@ const TopLanding = () => (
       loading="eager"
       priority
     />
-    <div className={"z-10 text-white text-center absolute bottom-12 flex flex-col gap-4"}>
-      <span className={"text-3xl font-bold md:text-4xl"}>Vicharm 攝影旅行日誌</span>
+    <div
+      className={
+        "z-10 text-white text-center absolute bottom-12 flex flex-col gap-4"
+      }
+    >
+      <span className={"text-3xl font-bold md:text-4xl"}>
+        Vicharm 攝影旅行日誌
+      </span>
       <p className={"text-xl md:text-2xl"}>在旅行途中，成就更美好的意義</p>
     </div>
   </div>
@@ -50,9 +54,9 @@ const Introduction = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export const SectionLanding = ({
+const SectionLanding = ({
   title,
   description,
   imageSrc,
@@ -102,83 +106,85 @@ export const SectionLanding = ({
       </div>
     </div>
   );
-}
+};
 
-const PostCards = ({posts, category}: {posts: PostCardView[], category: "trip" | "article"}) => {
+const PostCards = ({
+  posts,
+  category,
+}: {
+  posts: PostCardView[];
+  category: "trip" | "article";
+}) => {
   return (
     <div className="flex flex-wrap w-full items-center justify-center gap-4 px-4 py-12">
       {posts.map((post: PostCardView) => (
         <PostCard data={post} category={category} key={post.id} />
       ))}
     </div>
-  )
-}
+  );
+};
+
 interface Props {
   tripData: PostMeta[];
   articleData: PostMeta[];
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+const Home = ({tripData, articleData}: Props) => {
+  return (
+    <main className="w-screen flex flex-col justify-center items-center">
+      <ScrollTracker id="home" type="home" />
+      <TopLanding />
+      <Introduction />
+      <SectionLanding
+        title="探索美好旅程"
+        description={[
+          "春季櫻花飛舞 / 夏季海風吹拂",
+          "秋季雲海秋芒 / 冬季白雪霧淞",
+        ]}
+        imageSrc={"/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg"}
+        imageAlt={"鼻頭角"}
+        textBoxColor={"cyan"}
+        ctaText={"旅程指南列表"}
+        ctaLink={"/trip"}
+      />
+      <PostCards posts={tripData} category="trip" />
+      <SectionLanding
+        title="旅行紀錄"
+        description={["分享旅行遇到的點點滴滴", "美景與回憶都值得紀念"]}
+        imageSrc={"/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg"}
+        imageAlt={"九份"}
+        textBoxColor={"lime"}
+        ctaText={"旅行紀錄列表"}
+        ctaLink={"/article"}
+      />
+      <PostCards posts={articleData} category="article" />
+    </main>
+  );
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://vicharm-life.com'),
+  title: 'Vicharm 攝影與旅行日誌',
+  description: '台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好',
+  openGraph: {
+    title: 'Vicharm 攝影與旅行日誌',
+    description: '台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好',
+    images: [
+      {
+        url: '/favicon.ico',
+        width: 1200,
+        height: 630,
+        alt: 'Vicharm Life',
+      },
+    ],
+  },
+}
+
+export default async function Page() {
   const articleData = await getSortedPostsData("articles").slice(0, 3);
   const tripData = await getSortedPostsData("trips").slice(0, 3);
-  return {
-    props: {
-      articleData,
-      tripData,
-    },
-  };
-};
-
-export default function Home(props: Props) {
-  useScrollTrack("home", "home");
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <Head>
-        <title>Vicharm 攝影與旅行日誌</title>
-        <meta
-          name="description"
-          content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Vicharm 攝影與旅行日誌" />
-        <meta
-          property="og:description"
-          content="台灣旅行指南與旅行紀錄，用相機紀錄旅行的美好"
-        />
-        <meta property="og:image" content="/favicon.ico" />
-      </Head>
-
-      <main className="w-screen flex flex-col justify-center items-center">
-        <TopLanding />
-        <Introduction />
-        <SectionLanding
-          title="探索美好旅程"
-          description={[
-            "春季櫻花飛舞 / 夏季海風吹拂",
-            "秋季雲海秋芒 / 冬季白雪霧淞",
-          ]}
-          imageSrc={"/鼻頭角/50319789558_7ae74799a3_o_nDz_u3VUP.jpeg"}
-          imageAlt={"鼻頭角"}
-          textBoxColor={"cyan"}
-          ctaText={"旅程指南列表"}
-          ctaLink={"/trip"}
-        />
-        <PostCards posts={props.tripData} category="trip" />
-        <SectionLanding
-          title="旅行紀錄"
-          description={[
-            "分享旅行遇到的點點滴滴",
-            "美景與回憶都值得紀念",
-          ]}
-          imageSrc={"/九份/50188569871_7430e1dc46_o_i701rkfVT.jpeg"}
-          imageAlt={"九份"}
-          textBoxColor={"lime"}
-          ctaText={"旅行紀錄列表"}
-          ctaLink={"/article"}
-        />
-        <PostCards posts={props.articleData} category="article" />
-      </main>
-    </div>
-  );
+    <Home articleData={articleData} tripData={tripData}></Home>
+  )
 }
