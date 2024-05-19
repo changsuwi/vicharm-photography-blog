@@ -15,7 +15,7 @@ export default function PostCard({
   category: "trip" | "article";
   supportVerticalUI?: boolean;
 }) {
-  const { title, img, imgAlt, preview, id } = data;
+  const { title, img, preview, id } = data;
   return (
     <Link href={`/${category}/${id}`} key={id} className={clsx("w-[300px]", supportVerticalUI && "md:w-full")}>
       <div
@@ -33,7 +33,7 @@ export default function PostCard({
         >
           <MyImage
             src={img}
-            alt={imgAlt}
+            alt={title}
             loading="lazy"
             fill
             className={clsx(
