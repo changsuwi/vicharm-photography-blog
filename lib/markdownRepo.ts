@@ -8,6 +8,8 @@ import remarkRehype from "remark-rehype";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { unified } from "unified";
 
+import { Post, PostMeta } from "../models/post";
+
 const base = process.cwd();
 
 export function getSortedPostsData(dirName: string) {
@@ -26,11 +28,7 @@ export function getSortedPostsData(dirName: string) {
 
     // Combine the data with the id
 
-    return {
-      id,
-      date: matterResult.data.date,
-      ...matterResult.data,
-    };
+    return {id, ...matterResult.data} as PostMeta;
   });
   // Sort posts by date
   return allPostsData.sort(({ date: a }, { date: b }) => {
@@ -69,7 +67,7 @@ export function getAllPostIds(dirName: string) {
   });
 }
 
-export async function getPostData(id: string, dirName: string) {
+export async function getPostData(id: string, dirName: string): Promise<Post> {
   const fullPath = path.join(base, dirName, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -88,8 +86,7 @@ export async function getPostData(id: string, dirName: string) {
 
   // Combine the data with the id and contentHtml
   return {
-    id,
     contentHtml,
-    ...matterResult.data,
+    ...{id, ...matterResult.data} as PostMeta,
   };
 }
