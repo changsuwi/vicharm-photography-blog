@@ -1,4 +1,3 @@
-import Head from "next/head";
 import * as React from "react";
 
 import { Post } from "../models/post";
@@ -14,20 +13,6 @@ export default function Article({
     data;
   return (
     <div className={styles.article}>
-      <Head>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={`
-              ${hint}
-              標籤: ${tags.toString()}
-              關鍵字: ${keyword.toString()}
-            `}
-        />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={hint} />
-        <meta property="og:image" content="/favicon.ico" />
-      </Head>
       <article>
         <div className={styles["top-img-container"]}>
           <MyImage
