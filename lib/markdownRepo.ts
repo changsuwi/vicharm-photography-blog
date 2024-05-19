@@ -13,65 +13,31 @@ import { Post, PostMeta } from "../models/post";
 const base = process.cwd();
 
 export function getSortedPostsData(dirName: string) {
-  // Get file names under /posts
   const fileNames = fs.readdirSync(path.join(base, dirName));
   const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
-
-    // Read markdown file as string
     const fullPath = path.join(base, dirName, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-
-    // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-
-    // Combine the data with the id
-
-    return {id, ...matterResult.data} as PostMeta;
+    return { id, ...matterResult.data } as PostMeta;
   });
-  // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
+
+  return allPostsData.sort(({ date: a }, { date: b }) => b.localeCompare(a));
 }
 
 export function getAllPostIds(dirName: string) {
   const fileNames = fs.readdirSync(path.join(base, dirName));
 
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
+  return fileNames.map((fileName) => ({
+    params: {
+      id: fileName.replace(/\.md$/, ""),
+    },
+  }));
 }
 
 export async function getPostData(id: string, dirName: string): Promise<Post> {
   const fullPath = path.join(base, dirName, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
   const processedContent = await unified()
@@ -84,9 +50,8 @@ export async function getPostData(id: string, dirName: string): Promise<Post> {
 
   const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
   return {
     contentHtml,
-    ...{id, ...matterResult.data} as PostMeta,
+    ...{ id, ...matterResult.data } as PostMeta,
   };
 }
