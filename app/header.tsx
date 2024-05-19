@@ -36,7 +36,7 @@ export default function Header() {
         )
       )}
     >
-      <Link href="/" aria-label="Home">
+      <Link href="/" aria-label="Home" prefetch={false}>
         <Image
           src={sticky ? "/logo/logo.png" : "/logo/logo2.png"}
           alt="logo"
