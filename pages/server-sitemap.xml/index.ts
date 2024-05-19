@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { getServerSideSitemap } from 'next-sitemap'
 
-import { getAllPostIds } from '../../lib/post'
+import { getAllPostIds } from '../../lib/markdownRepo'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // Method to source urls from cms

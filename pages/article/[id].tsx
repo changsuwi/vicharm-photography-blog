@@ -3,10 +3,11 @@ import * as React from "react";
 
 import Article from "../../components/Article";
 import useScrollTrack from "../../hooks/useScrollTrack";
-import { getAllPostIds, getPostData } from '../../lib/post'
+import { getAllPostIds, getPostData } from '../../lib/markdownRepo'
+import { Post } from "../../models/post";
 
 interface Props {
-    postData: any
+    postData: Post
 }
 
 export const getStaticProps: GetStaticProps = async (content: any) => {

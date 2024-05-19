@@ -5,11 +5,11 @@ import * as React from "react";
 import PostCard from "../../components/PostCard";
 import PostCardPage from "../../components/PostCardPage";
 import useScrollTrack from "../../hooks/useScrollTrack";
-import { getSortedPostsData } from "../../lib/post";
-import { PostCardView } from "../../models/post";
+import { getSortedPostsData } from "../../lib/markdownRepo";
+import { PostCardView, PostMeta } from "../../models/post";
 
 interface Props {
-  postData: any;
+  postData: PostMeta[];
 }
 
 export const getStaticProps: GetStaticProps = async (content: any) => {

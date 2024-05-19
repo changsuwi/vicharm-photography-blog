@@ -7,8 +7,8 @@ import React from "react";
 import MyImage from "../components/common/MyImage";
 import PostCard from "../components/PostCard";
 import useScrollTrack from "../hooks/useScrollTrack";
-import { getSortedPostsData } from "../lib/post";
-import { PostCardView } from "../models/post";
+import { getSortedPostsData } from "../lib/markdownRepo";
+import { PostCardView, PostMeta } from "../models/post";
 
 const TopLanding = () => (
   <div className="w-full h-[667px] relative overflow-hidden flex flex-col justify-center items-center color-white text-center lg:h-[900px]">
@@ -114,11 +114,11 @@ const PostCards = ({posts, category}: {posts: PostCardView[], category: "trip" |
   )
 }
 interface Props {
-  tripData: any;
-  articleData: any;
+  tripData: PostMeta[];
+  articleData: PostMeta[];
 }
 
-export const getStaticProps: GetStaticProps = async (content: any) => {
+export const getStaticProps: GetStaticProps = async () => {
   const articleData = await getSortedPostsData("articles").slice(0, 3);
   const tripData = await getSortedPostsData("trips").slice(0, 3);
   return {

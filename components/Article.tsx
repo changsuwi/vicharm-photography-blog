@@ -1,25 +1,16 @@
 import Head from "next/head";
 import * as React from "react";
 
+import { Post } from "../models/post";
 import styles from "../styles/Post.module.scss";
 import MyImage from "./common/MyImage";
 
 export default function Article({
   data,
 }: {
-  data: {
-    title: string;
-    hint: string;
-    keyword: string[];
-    tags: string[];
-    img: string;
-    contentHtml: any;
-    season: string;
-    map: string;
-    id: string;
-  };
+  data: Post;
 }) {
-  const { title, hint, tags, img, keyword, contentHtml, season, map, id } =
+  const { title, hint, tags, img, keyword, contentHtml, season, map } =
     data;
   return (
     <div className={styles.article}>
