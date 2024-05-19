@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="zh-tw">
+    <html lang="zh-Hant">
       <body>
         <>
           <GA />
