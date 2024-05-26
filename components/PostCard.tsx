@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Link from "next/link";
 
 import { PostCardView } from "../models/post";
-import MyImage from "./common/MyImage";
+import MyImage from "./MyImage";
 
 export default function PostCard({
   data,

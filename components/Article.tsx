@@ -2,14 +2,14 @@ import * as React from "react";
 
 import { Post } from "../models/post";
 import styles from "../styles/Post.module.scss";
-import MyImage from "./common/MyImage";
+import MyImage from "./MyImage";
 
 export default function Article({
   data,
 }: {
   data: Post;
 }) {
-  const { title, hint, tags, img, keyword, contentHtml, season, map } =
+  const { title, hint, tags, img, contentHtml, season, map } =
     data;
   return (
     <div className={styles.article}>

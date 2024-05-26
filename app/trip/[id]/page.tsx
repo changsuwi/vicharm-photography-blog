@@ -2,7 +2,7 @@ import type { Metadata, ResolvingMetadata } from 'next'
 
 import Article from "../../../components/Article";
 import { getAllPostIds, getPostData } from "../../../lib/markdownRepo"
-import ScrollTracker from "../../scrollTracker";
+import ScrollTracker from "../../../components/ScrollTracker";
 
 export const dynamicParams = true;
 

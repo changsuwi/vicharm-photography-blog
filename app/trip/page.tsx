@@ -4,7 +4,7 @@ import PostCard from '../../components/PostCard';
 import PostCardPage from '../../components/PostCardPage';
 import { getSortedPostsData } from "../../lib/markdownRepo";
 import { PostCardView } from '../../models/post';
-import ScrollTracker from '../scrollTracker';
+import ScrollTracker from '../../components/ScrollTracker';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vicharm-life.com'),

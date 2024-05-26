@@ -3,7 +3,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
-import Amplitude from "../../lib/Amplitude";
+import Amplitude from "../lib/Amplitude";
 
 export function IGIcon() {
   return (

@@ -1,8 +1,6 @@
 import * as React from "react";
 
-import { PostCardView } from "../models/post";
-import MyImage from "./common/MyImage";
-import PostCard from "./PostCard";
+import MyImage from "./MyImage";
 
 export default function PostCardListPage({ children, landingImgSrc, category }: { children: React.ReactNode, landingImgSrc: string, category: "trip" | "article" }) {
   return (
