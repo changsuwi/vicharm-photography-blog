@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 
 import PostCard from '../../components/PostCard';
 import PostCardPage from '../../components/PostCardPage';
+import ScrollTracker from '../../components/ScrollTracker';
 import { getSortedPostsData } from "../../lib/markdownRepo";
 import { PostCardView } from '../../models/post';
-import ScrollTracker from '../scrollTracker';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vicharm-life.com'),

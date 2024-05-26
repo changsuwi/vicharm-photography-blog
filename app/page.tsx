@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import type { Metadata } from 'next'
 import Link from 'next/link';
 
-import MyImage from '../components/common/MyImage';
+import MyImage from '../components/MyImage';
 import PostCard from '../components/PostCard';
+import ScrollTracker from '../components/ScrollTracker';
 import { getSortedPostsData } from "../lib/markdownRepo";
 import { PostCardView, PostMeta } from '../models/post';
-import ScrollTracker from './scrollTracker';
  
 const TopLanding = () => (
   <div className="w-full h-[667px] relative overflow-hidden flex flex-col justify-center items-center color-white text-center lg:h-[900px]">

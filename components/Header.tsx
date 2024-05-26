@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect,useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { IGIcon } from "../components/common/IGIcon";
+import { IGIcon } from "./IGIcon";
 
 export default function Header() {
   const [sticky, setSticky] = useState(false);
