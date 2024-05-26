@@ -1,8 +1,8 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 
 import Article from "../../../components/Article";
-import { getAllPostIds, getPostData } from "../../../lib/markdownRepo"
 import ScrollTracker from "../../../components/ScrollTracker";
+import { getAllPostIds, getPostData } from "../../../lib/markdownRepo"
 
 export const dynamicParams = true;
 
